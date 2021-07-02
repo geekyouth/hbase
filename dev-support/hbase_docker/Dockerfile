@@ -74,7 +74,7 @@ ENV PATH "${JAVA_HOME}/bin:${MAVEN_HOME}/bin:${PATH}"
 
 # Pull down HBase and build it into /root/hbase-bin.
 WORKDIR /root
-RUN git clone https://github.com/geekyouth/hbase -b v2.3.3_base-tag-2.3.3
+RUN git clone https://gitee.com/geekyouth/hbase -b v2.3.3_base-tag-2.3.3
 RUN mvn clean install -DskipTests assembly:single -f ./hbase/pom.xml
 RUN mkdir -p hbase-bin
 RUN find /root/hbase/hbase-assembly/target -iname '*.tar.gz' -not -iname '*client*' \
